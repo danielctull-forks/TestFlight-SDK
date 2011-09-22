@@ -1,3 +1,8 @@
+0.7 - September 21, 2011
+Moved TestFlight images and data to the Library/Caches folder
+Resolved an issue where sometimes the rootViewController could not be found and feedback, questions and upgrade views would not be displayed
+In application upgrade changed to allow skipping until the next version is installed and allows upgrades to be forced
+Fixed a memory leak when launching questions
 0.6 - September 2, 2011
 Renamed base64_encode to testflight_base64_encode to remove a conflict with other third party libraries
 Added ability to reinstall crash handlers when they are overwritten using the setOptions API
