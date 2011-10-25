@@ -65,6 +65,8 @@ This SDK can be run from both the iPhone Simulator and Device and has been teste
 
             -(BOOL)application:(UIApplication *)application 
                     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+                // start of your application:didFinishLaunchingWithOptions 
+                // ...
                 [TestFlight takeOff:@"Insert your Team Token here"];
                 // The rest of your application:didFinishLaunchingWithOptions method
                 // ...

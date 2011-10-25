@@ -6,7 +6,7 @@
 //  Copyright 2011 TestFlight. All rights reserved.
 
 #import <Foundation/Foundation.h>
-#define TESTFLIGHT_SDK_VERSION "0.7"
+#define TESTFLIGHT_SDK_VERSION @"0.7.2"
 
 @interface TestFlight : NSObject {
 

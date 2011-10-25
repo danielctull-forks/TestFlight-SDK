@@ -1,3 +1,9 @@
+0.7.2 - September 29, 2011
+Changed TESTFLIGHT_SDK_VERSION string to be an NSString
+Fixed an issue where exiting an application while the SDK is active caused modal views to be dismissed
+0.7.1 - September 22, 2011
+Internal release
+Refactoring
 0.7 - September 21, 2011
 Moved TestFlight images and data to the Library/Caches folder
 Resolved an issue where sometimes the rootViewController could not be found and feedback, questions and upgrade views would not be displayed
