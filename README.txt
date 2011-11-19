@@ -1,4 +1,4 @@
-Thanks for downloading the TestFlight SDK 0.7! 
+Thanks for downloading the TestFlight SDK 0.8!
 
 This document is also available on the web at https://www.testflightapp.com/sdk/doc
 
@@ -35,11 +35,12 @@ This SDK can be run from both the iPhone Simulator and Device and has been teste
 3. How do I integrate the SDK into my project?
 
 
-1. Add the files to your project: Project -> Add to Project -> TestFlightSDK
+1. Add the files to your project: File -> Add Files to "<your project name>" 
 
-    1. Copy items into destination folder (if needed): Checked
-    2. Reference Type: Default
-    3. Recursively create groups for added folders
+    1. Find and select the folder that contains the SDK
+    2. Make sure that "Copy items into destination folder (if needed)" is checked
+    3. Set Folders to "Create groups for any added folders"
+    4. Select all targets that you want to add the SDK to
 
 2. Verify that libTestFlight.a has been added to the Link Binary With Libraries Build Phase for the targets you want to use the SDK with
     
