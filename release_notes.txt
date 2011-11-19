@@ -1,3 +1,21 @@
+0.8 - November 8, 2011
+Added SIGTRAP as a signal type that we catch
+Removed all Objective-c from crash reporting
+Removed the use of non signal safe functions from signal handling
+Created a signal safe way to get symbols from a stack trace
+Changed the keyboardType for Long Answer Questions and Feedback to allow for international character input
+Changed TESTFLIGHT_SDK_VERSION string to be an NSString
+Changed cache folder from Library/Caches/TestFlight to Library/Caches/com.testflight.testflightsdk
+Fixed issue with saving data when device is offline
+Fixed compability issues with iOS 3
+Added calling into the rootViewController shouldAutorotateToInterfaceOrientation if a rootViewController is set
+Made the comments in TestFlight.h compatible with Appledoc
+
+Tested compiled library with
+Xcode 4.2
+Xcode 4.1
+Xcode 3.2
+
 0.7.2 - September 29, 2011
 Changed TESTFLIGHT_SDK_VERSION string to be an NSString
 Fixed an issue where exiting an application while the SDK is active caused modal views to be dismissed
