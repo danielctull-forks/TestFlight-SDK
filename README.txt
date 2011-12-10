@@ -1,4 +1,4 @@
-Thanks for downloading the TestFlight SDK 0.8!
+Thanks for downloading the TestFlight SDK 0.8.1!
 
 This document is also available on the web at https://www.testflightapp.com/sdk/doc
 
@@ -11,6 +11,7 @@ This document is also available on the web at https://www.testflightapp.com/sdk/
 7. Questions API
 8. View your results
 9. Advanced Exception Handling
+10. Remote Logging
 
 START
 
@@ -24,6 +25,8 @@ To get the most out of the SDK we have provided the Checkpoint API.
 The Checkpoint API is used to help you track exactly how your testers are using your application. Curious about which users passed level 5 in your game, or posted their high score to Twitter, or found that obscure feature? With a single line of code you can finally gather all this information. Wondering how many times your app has crashed? Wondering who your power testers are? We've got you covered. See more information on the Checkpoint API in section 4.
 
 Alongside the Checkpoint API is the Questions interface. The Questions interface is managed on a per build basis on the TestFlight website. Find out more about the Questions Interface in section 6.
+
+For more detailed debugging we have a remote logging solution. Find out more about our logging system with TFLog in the Remote Logging section.
 
 2. Considerations
 
@@ -83,7 +86,7 @@ This SDK can be run from both the iPhone Simulator and Device and has been teste
 
 4. Use the Checkpoint API to create important checkpoints throughout your application.
 
-When a tester passes a level, or adds a new todo item, you can pass a checkpoint.  The checkpoint progress is used to provide insight into how your testers are testing your apps.  The passed checkpoints are also attached to crashes, which can help when creating steps to replicate.
+When a tester does something you care about in your app you can pass a checkpoint.  For example completing a level, adding a todo item, etc.  The checkpoint progress is used to provide insight into how your testers are testing your apps.  The passed checkpoints are also attached to crashes, which can help when creating steps to replicate.
 
 `[TestFlight passCheckpoint:@"CHECKPOINT_NAME"];`
 Use `passCheckpoint:` to track when a user performs certain tasks in your application. This can be useful for making sure testers are hitting all parts of your application, as well as tracking which testers are being thorough.
@@ -110,7 +113,7 @@ There are three question types available: Yes/No, Multiple Choice, and Long Answ
 
 To create questions, visit your builds Questions page and click on 'Add Question'. If you choose Multiple Choice, you'll need to enter a list of possible answers for your testers to choose from &mdash; otherwise, you'll only need to enter your question's, well, question. If your build has no questions, you can also choose to migrate questions from another build (because seriously &mdash; who wants to do all that typing again)?
 
-After restarting your application on an approved device, when you pass the checkpoint associated with your questions a Test Flight modal question form will appear on the screen asking the beta tester to answer your question.
+After restarting your application on an approved device, when you pass the checkpoint associated with your questions a TestFlight modal question form will appear on the screen asking the beta tester to answer your question.
 
 After you upload a new build to TestFlight you will need to associate questions once again. However if your checkpoints and questions have remained the same you can choose "copy questions from an older build" and choose which build to copy the questions from.
 
@@ -157,6 +160,34 @@ An uncaught exception means that your application is in an unknown state and the
             }
 
 You do not need to add the above code if your application does not use exception handling already.
+
+10. Remote Logging
+
+To perform remote logging you can use the TFLog method which logs in a few different methods described below. In order to make the transition from NSLog to TFLog easy we have used the same method signature for TFLog as NSLog. You can easily switch over to TFLog by adding the following macro to your header
+
+    #define NSLog TFLog
+
+That will do a switch from NSLog to TFLog, if you want more information, such as file name and line number you can use a macro like
+
+    #define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+Which will produce output that looks like
+
+    -[HTFCheckpointsController showYesNoQuestion:] [Line 45] Pressed YES/NO
+
+We have implemented three different loggers.
+
+    1. TestFlight logger
+    2. Apple System Log logger
+    3. STDERR logger
+
+Each of the loggers log asynchronously and all TFLog calls are non blocking. The TestFlight logger writes its data to a file which is then sent to our servers on Session End events. The Apple System Logger sends its messages to the Apple System Log and are viewable using the Organizer in Xcode when the device is attached to your computer. The ASL logger can be disabled by turning it off in your TestFlight options
+
+    [TestFlight setOptions:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"logsToConsole"]];
+
+The default option is YES.
+
+The STDERR logger sends log messages to STDERR so that you can see your log statements while debugging. The STDERR logger is only active when a debugger is attached to your application.
 
 END
 

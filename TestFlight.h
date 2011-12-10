@@ -6,7 +6,10 @@
 //  Copyright 2011 TestFlight. All rights reserved.
 
 #import <Foundation/Foundation.h>
-#define TESTFLIGHT_SDK_VERSION @"0.8"
+#define TESTFLIGHT_SDK_VERSION @"0.8.1"
+#undef TFLog
+
+void TFLog(NSString *format, ...);
 
 /**
  * TestFlight object
@@ -40,6 +43,8 @@
  *   Option                      Accepted Values                 Description
  *   reinstallCrashHandlers      [ NSNumber numberWithBool:YES ] Reinstalls crash handlers, to be used if a third party 
  *                                                               library installs crash handlers overtop of the TestFlight Crash Handlers
+ *   logToConsole                [ NSNumber numberWithBool:YES ] YES - default, sends log statements to Apple System Log and TestFlight log 
+ *                                                               NO  - sends log statements to TestFlight log only
  */
 + (void)setOptions:(NSDictionary*)options;
 

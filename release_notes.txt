@@ -1,3 +1,14 @@
+0.8.1 - November 18, 2011
+Implemented TFLog logging system, see README for more information
+Fixed an issue where Session End events may not be sent until next launch
+Fixed an issue where duplicate events could be sent
+Fixed an issue with Session End events not being sent from some iPod touch models
+
+Tested compiled library with
+Xcode 4.2
+Xcode 4.1
+Xcode 3.2.6
+
 0.8 - November 8, 2011
 Added SIGTRAP as a signal type that we catch
 Removed all Objective-c from crash reporting
