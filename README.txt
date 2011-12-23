@@ -1,4 +1,4 @@
-Thanks for downloading the TestFlight SDK 0.8.1!
+Thanks for downloading the TestFlight SDK 0.8.2!
 
 This document is also available on the web at https://www.testflightapp.com/sdk/doc
 
@@ -78,7 +78,7 @@ This SDK can be run from both the iPhone Simulator and Device and has been teste
 
     4. To report crashes to you we install our own uncaught exception handler. If you are not currently using an exception handler of your own then all you need to do is go to the next step. If you currently use an Exception Handler, or you use another framework that does please go to the section on advanced exception handling.
 
-4. To enable the best crash reporting possible we recommend setting the following project build settings in Xcode to NO for all targets that you want to have live crash reporting for You can find build settings by opening the Project Navigator (default command+1 or command+shift+j) then clicking on the project you are configuring (usually the first selection in the list). From there you can choose to either change the global project settings or settings on an individual project basis. All settings below are in the Deployment Section.
+4. To enable the best crash reporting possible we recommend setting the following project build settings in Xcode to NO for all targets that you want to have live crash reporting for. You can find build settings by opening the Project Navigator (default command+1 or command+shift+j) then clicking on the project you are configuring (usually the first selection in the list). From there you can choose to either change the global project settings or settings on an individual project basis. All settings below are in the Deployment Section.
 
     1. Deployment Post Processing
     2. Strip Debug Symbols During Copy

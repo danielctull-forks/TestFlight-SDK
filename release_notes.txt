@@ -1,3 +1,27 @@
+0.8.2 - December 20, 2011
+Promoted 0.8.2 BETA 4 to stable
+
+Known Issues:
+Under some circumstances Session End events may not be sent until the next launch.
+With large log files Session End events may take a long time to show up.
+
+Tested compiled library with
+Xcode 4.3
+Xcode 4.2
+Xcode 4.1
+Xcode 3.2.6
+
+0.8.2 BETA 4 - December 12, 2011
+Prevented "The string argument is NULL" from occuring during finishedHandshake in rare cases
+Resolved issue where background data may not be sent
+
+0.8.2 BETA 3 - December 8, 2011
+Added auto-release pools to background setup and tear down 
+Added C++ specific code to TFLog declaration
+
+0.8.2 BETA 2 - December 5, 2011
+Fixed the "pointer being freed was not allocated" bug
+
 0.8.1 - November 18, 2011
 Implemented TFLog logging system, see README for more information
 Fixed an issue where Session End events may not be sent until next launch
