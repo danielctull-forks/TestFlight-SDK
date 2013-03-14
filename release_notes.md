@@ -1,3 +1,7 @@
+## 1.2.1 - December 26, 2012
+
+- The max number of concurrent network connections has been reduced from 4 to 2.
+
 ##1.2 - November 12, 2012
 
 * Removed Team Token support. As of version 1.2 takeOff must be called with the Application Token, https://testflightapp.com/dashboard/applications/, choose your application, select SDK, get the Token for this Application.
