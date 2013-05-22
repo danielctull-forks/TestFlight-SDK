@@ -17,6 +17,8 @@ Information gathered by the SDK is sent to the website in real time. When an app
 
 This SDK can be run from both the iPhone Simulator and Device and has been tested using Xcode 4.0.
 
+The AdSupport.framework is required for iOS 6.0+ in order to estimate the number of unique users your app has. You may weak link the framework in you app. If your app does not link with the AdSupport.framework, the TestFlight SDK will automatically load it for apps running on iOS 6.0+.
+
                 
 ##Integration
 

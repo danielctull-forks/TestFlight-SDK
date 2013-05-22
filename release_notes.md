@@ -1,3 +1,9 @@
+## 1.2.5 - May 1, 2013
+
+- Removed any access to mac address
+- Added AdSupport.framework requirement
+    - AdSupport.framework is automatically loaded on iOS 6.0+ if not weak linked with app
+
 ## 1.2.4 - February 19, 2013
 
 - Fixed bug that caused crash reports to sometimes not send immediately (they would be resent later)
